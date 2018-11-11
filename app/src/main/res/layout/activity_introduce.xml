@@ -58,6 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onChatbot1Clicked"
                 app:srcCompat="@drawable/chatbot1" />
 
             <ImageView
@@ -65,6 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onChatbot2Clicked"
                 app:srcCompat="@drawable/chatbot2" />
 
             <ImageView
@@ -72,8 +74,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onChatbot3Clicked"
                 app:srcCompat="@drawable/chatbot3" />
+
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_talk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
