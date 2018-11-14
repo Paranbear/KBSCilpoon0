@@ -29,8 +29,11 @@ import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_DONE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_JUST_IMAGE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_MENU;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.APPLY_CARD;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.DATE_LINE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.POP_CARD;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.RECOMMEND_CARD;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.SHOW_CARD1;
 
 public class ChatbotActivity extends AppCompatActivity {
 
@@ -108,9 +111,6 @@ public class ChatbotActivity extends AppCompatActivity {
                 chats.add(chat);
 
 
-                //챗봇 시나리오 집어넣는 곳
-                //입력 텍스트에 대한 답변 처리 부분
-
                 if (getMessage().contains(ACTION_MENU)) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "안녕하세요. 챗봇1입니다 더 궁금하신 점이 있나요?", false, ACTION_MENU);
                     chats.add(chat); //10.23 추가사항
@@ -121,21 +121,40 @@ public class ChatbotActivity extends AppCompatActivity {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "당신 안녕", false, ACTION_TEXT);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                     chats.add(chat);
+
                 }
-                if (getMessage().equals("1")) { //텍스트 값과 정확히 일치할 때
+                if (getMessage().contains(POP_CARD)) { //텍스트 값과 정확히 일치할 때
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "좌우 방향으로 카드를 넘겨볼 수 있어요", false, POP_CARD);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                     chats.add(chat);
                 }
-                if (getMessage().contains("2")) {  //텍스트 값을 포함할 때
-                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "테스트2에 대한 답변이야", false, ACTION_TEXT);
+                if (getMessage().contains(RECOMMEND_CARD)) {  //텍스트 값을 포함할 때
+                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 이중에서너가제일원하는것을골라줘!", false, RECOMMEND_CARD);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                     chats.add(chat);
+
                 }
-                if (getMessage().contains(ACTION_CHECK)) {
+                if(getMessage().contains(APPLY_CARD)) {
+                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 생각해둔카드가있는거야?있다면말해줘!", false, ACTION_TEXT);
+                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
+                    chats.add(chat);
+
+                }
+                if(getMessage().contains("노리")) {
+                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "이거 맞아??", false, SHOW_CARD1);
+                    chats.add(chat);
+                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
+                }
+//                if(getMessage().contains("5")) {
+//                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 추가로받고싶은혜택하나만더골라봐~", false, RECOMMEND_CARD);
+//                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
+//                    chats.add(chat);
+//                }
+                if (getMessage().contains("그만")||getMessage().contains("안")) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "정말 그만두시겠습니까?", false, ACTION_CHECK);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                     chats.add(chat);
+
                 }
                 if (getMessage().contains("re")) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "감정을 재기록하시겠어요?", false, ACTION_MENU);

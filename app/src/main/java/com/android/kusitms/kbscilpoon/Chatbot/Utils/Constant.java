@@ -12,9 +12,11 @@ public class Constant {
 
     public static final String ACTION_MENU = "menu";
     public static final String ACTION_DEFAULT = "default";
-    public static final String POP_CARD = "pop_card";
+    public static final String POP_CARD = "1";
+    public static final String RECOMMEND_CARD="2";
+    public static final String APPLY_CARD="3";
 
-
+    public static final String SHOW_CARD1="card1";
 
     public static final String TAG_ACTION = "action";
     public static final String TAG_USER_TYPE = "user_type";

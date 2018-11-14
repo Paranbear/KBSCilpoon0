@@ -24,8 +24,11 @@ import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_DEFAU
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_JUST_IMAGE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_MENU;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.APPLY_CARD;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.DATE_LINE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.POP_CARD;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.RECOMMEND_CARD;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.SHOW_CARD1;
 
 public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> {
 
@@ -128,6 +131,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 dateLine.setVisibility(View.GONE);
 
                 rv_choice_card.setVisibility(View.VISIBLE);
+                imagePop.setVisibility(View.VISIBLE);
 
                 ArrayList<SectionDataModel> array_action_start = new ArrayList<SectionDataModel>();
                 ArrayList<SingleItemModel> singleItem_start = new ArrayList<SingleItemModel>();
@@ -135,9 +139,9 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
 
 
-                singleItem_start.add(new SingleItemModel("1.인기카드 추천", ACTION_MENU));
-                singleItem_start.add(new SingleItemModel("2.내게 맞는 추천", ACTION_MENU));
-                singleItem_start.add(new SingleItemModel("3.바로신청", ACTION_MENU));
+                singleItem_start.add(new SingleItemModel("1.인기카드 추천", POP_CARD));
+                singleItem_start.add(new SingleItemModel("2.내게 맞는 추천", RECOMMEND_CARD));
+                singleItem_start.add(new SingleItemModel("3.바로신청", APPLY_CARD));
 
                 dm_start.setAllItemInSection(singleItem_start);
                 array_action_start.add(dm_start);
@@ -166,7 +170,10 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
 
 
-                singleItem_popcard.add(new SingleItemModel("상세 보기", R.drawable.cardtest, ACTION_MENU )); //수정 필요!
+                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
 
                 dm_popcard.setAllItemInSection(singleItem_popcard);
                 array_action_popcard.add(dm_popcard);
@@ -177,6 +184,68 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 rv_choice_card.setAdapter(adapter_popcard);
 
                 break;
+
+            case RECOMMEND_CARD:
+                container_txt.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+
+
+                rv_choice_card.setVisibility(View.VISIBLE);
+
+                ArrayList<SectionDataModel> array_action_recommendcard = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> singleItem_recommendcard = new ArrayList<SingleItemModel>();
+                SectionDataModel dm_recommendcard = new SectionDataModel();
+
+
+
+                singleItem_recommendcard.add(new SingleItemModel("대중교통/통신", R.drawable.recommenttest, ACTION_MENU ));
+                singleItem_recommendcard.add(new SingleItemModel("커피/외식/편의점", R.drawable.recommenttest, ACTION_MENU ));
+                singleItem_recommendcard.add(new SingleItemModel("해외직구/마트/백화점", R.drawable.recommenttest, ACTION_MENU ));
+                singleItem_recommendcard.add(new SingleItemModel("주유/적립", R.drawable.recommenttest, ACTION_MENU ));
+                singleItem_recommendcard.add(new SingleItemModel("교육/의료/문화/레저", R.drawable.recommenttest, ACTION_MENU ));
+                dm_recommendcard.setAllItemInSection(singleItem_recommendcard);
+                array_action_recommendcard.add(dm_recommendcard);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewAdapter adapter_recommendcard = new RecyclerViewAdapter(context, array_action_recommendcard);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter_recommendcard);
+                break;
+
+            case SHOW_CARD1:
+                container_txt.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+
+
+                rv_choice_card.setVisibility(View.VISIBLE);
+
+                ArrayList<SectionDataModel> array_action_showcard = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> singleItem_showcard = new ArrayList<SingleItemModel>();
+                SectionDataModel dm_showcard = new SectionDataModel();
+
+
+
+                singleItem_showcard.add(new SingleItemModel("노리카드", R.drawable.cardtest, SHOW_CARD1));
+
+                dm_showcard.setAllItemInSection(singleItem_showcard);
+                array_action_showcard.add(dm_showcard);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewAdapter adapter_showcard = new RecyclerViewAdapter(context, array_action_showcard);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter_showcard);
+                break;
+
 
 
 

@@ -18,7 +18,6 @@ import com.android.kusitms.kbscilpoon.R;
 import java.util.ArrayList;
 
 import static com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity.current_room_no;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_CHECK;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder>  {
@@ -80,23 +79,23 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
 
 
-
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
 
-                    if(tvCode.getText() == ACTION_CHECK) {
-                        switch (getLayoutPosition()) {
-                            case 0:
-                                Toast.makeText(v.getContext(), "응", Toast.LENGTH_SHORT).show();
-                                break;
-
-                            case 1:
-                                Toast.makeText(v.getContext(), "아니", Toast.LENGTH_SHORT).show();
-                                break;
-                        }
-                    }
+                    if(tvCode.getText() == "1.인기카드") {
+                        Toast.makeText(v.getContext(), "1.인기카드", Toast.LENGTH_SHORT).show();
+//                        switch (getLayoutPosition()) {
+//                            case 0:
+//
+//                                break;
+//
+//                            case 1:
+//                                Toast.makeText(v.getContext(), "아니", Toast.LENGTH_SHORT).show();
+//                                break;
+//                        }
+                       }
 
                     }
 
