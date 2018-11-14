@@ -23,12 +23,14 @@ import com.android.kusitms.kbscilpoon.R;
 
 import java.util.ArrayList;
 
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_BUTTON_IMAGE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_CHECK;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_DONE;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_IMAGE;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_JUST_IMAGE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_MENU;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.DATE_LINE;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.POP_CARD;
 
 public class ChatbotActivity extends AppCompatActivity {
 
@@ -52,7 +54,7 @@ public class ChatbotActivity extends AppCompatActivity {
         init_layout();
         init_system();
 
-        Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "안녕하세요. 챗봇1입니다!", false, ACTION_MENU);
+        Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 안녕! 나는 너에게 맞는 체크카드를 추천해주고 발급을 도와주는 OO이야~ 궁금한 게 있으면 언제든 나를 찾아줘!", false, ACTION_MENU);
         chats.add(chat);
 
 
@@ -112,6 +114,7 @@ public class ChatbotActivity extends AppCompatActivity {
                 if (getMessage().contains(ACTION_MENU)) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "안녕하세요. 챗봇1입니다 더 궁금하신 점이 있나요?", false, ACTION_MENU);
                     chats.add(chat); //10.23 추가사항
+
                 }
 
                 if (getMessage().contains(ACTION_DONE)) {
@@ -120,7 +123,7 @@ public class ChatbotActivity extends AppCompatActivity {
                     chats.add(chat);
                 }
                 if (getMessage().equals("1")) { //텍스트 값과 정확히 일치할 때
-                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "테스트1에 대한 답변이야", false, ACTION_TEXT);
+                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "좌우 방향으로 카드를 넘겨볼 수 있어요", false, POP_CARD);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                     chats.add(chat);
                 }
@@ -129,22 +132,26 @@ public class ChatbotActivity extends AppCompatActivity {
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                     chats.add(chat);
                 }
-                if (getMessage().contains("0")) {
+                if (getMessage().contains(ACTION_CHECK)) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "정말 그만두시겠습니까?", false, ACTION_CHECK);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                     chats.add(chat);
                 }
                 if (getMessage().contains("re")) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "감정을 재기록하시겠어요?", false, ACTION_MENU);
-                    chats.add(chat); //10.23 추가사항
+                    chats.add(chat);
                 }
                 if(getMessage().contains("image")) {
-                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "이미지 보여주기", false, ACTION_IMAGE);
+                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "이미지 보여주기", false, ACTION_BUTTON_IMAGE);
                     chats.add(chat); //10.23 추가사항
                 }
                 if(getMessage().equals("move")){
                     Intent intent = new Intent(getApplicationContext(),IntroduceActivity.class);
                     startActivityForResult(intent, 50);
+                }
+                if(getMessage().equals("image2")) {
+                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "이미지 상단에 보여주기", false, ACTION_JUST_IMAGE);
+                    chats.add(chat);
                 }
 
 

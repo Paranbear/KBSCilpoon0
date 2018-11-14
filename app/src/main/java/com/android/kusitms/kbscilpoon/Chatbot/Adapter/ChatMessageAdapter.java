@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,11 +18,14 @@ import com.android.kusitms.kbscilpoon.R;
 
 import java.util.ArrayList;
 
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_BUTTON_IMAGE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_CHECK;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_IMAGE;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_DEFAULT;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_JUST_IMAGE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_MENU;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.DATE_LINE;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.POP_CARD;
 
 public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> {
 
@@ -83,6 +87,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
     TextView dateLine;//날짜 변경선을 보여주는 텍스트뷰
     Context context;
     RecyclerView rv_choice_card;
+    ImageView imagePop;
 
     public ChatMessageViewHolder(View itemView) {
         super(itemView);
@@ -97,6 +102,8 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
         dateLine = (TextView) itemView.findViewById(R.id.dateLine);
         tv_user_real_name = (TextView) itemView.findViewById(R.id.txtUserName);
         rv_choice_card = (RecyclerView)itemView.findViewById(R.id.rv_choice_card);
+
+        imagePop = (ImageView)itemView.findViewById(R.id.imagePop);
     }
 
 
@@ -128,10 +135,9 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
 
 
-                singleItem_start.add(new SingleItemModel("카드 정보 알기1", ACTION_MENU));
-                singleItem_start.add(new SingleItemModel("카드 정보 알기2", ACTION_MENU));
-                singleItem_start.add(new SingleItemModel("카드 정보 알기3", ACTION_MENU));
-                singleItem_start.add(new SingleItemModel("카드 정보 알기4", ACTION_MENU));
+                singleItem_start.add(new SingleItemModel("1.인기카드 추천", ACTION_MENU));
+                singleItem_start.add(new SingleItemModel("2.내게 맞는 추천", ACTION_MENU));
+                singleItem_start.add(new SingleItemModel("3.바로신청", ACTION_MENU));
 
                 dm_start.setAllItemInSection(singleItem_start);
                 array_action_start.add(dm_start);
@@ -141,6 +147,39 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
                 rv_choice_card.setAdapter(adapter_start);
                 break;
+
+            case POP_CARD:
+                container_txt.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+
+
+                rv_choice_card.setVisibility(View.VISIBLE);
+
+                ArrayList<SectionDataModel> array_action_popcard = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> singleItem_popcard = new ArrayList<SingleItemModel>();
+                SectionDataModel dm_popcard = new SectionDataModel();
+
+
+
+                singleItem_popcard.add(new SingleItemModel("상세 보기", R.drawable.cardtest, ACTION_MENU )); //수정 필요!
+
+                dm_popcard.setAllItemInSection(singleItem_popcard);
+                array_action_popcard.add(dm_popcard);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewAdapter adapter_popcard = new RecyclerViewAdapter(context, array_action_popcard);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setAdapter(adapter_popcard);
+
+                break;
+
+
+
 
             case ACTION_TEXT:
 
@@ -154,6 +193,19 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
                 rv_choice_card.setVisibility(View.GONE);
 
+                break;
+
+            case ACTION_JUST_IMAGE:
+                container_txt.setVisibility(View.VISIBLE);
+                imagePop.setVisibility(View.VISIBLE);
+                //           txtCheck.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+
+                rv_choice_card.setVisibility(View.GONE);
                 break;
 
             case ACTION_CHECK:
@@ -175,17 +227,50 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 singleItem_yn.add(new SingleItemModel("아니", ACTION_MENU)); //수정 필요!
 
 
+
+
                 dm_yn.setAllItemInSection(singleItem_yn);
                 array_action_yn.add(dm_yn);
 
                 rv_choice_card.setHasFixedSize(true);
                 RecyclerViewAdapter adapter_done = new RecyclerViewAdapter(context, array_action_yn);
-                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
                 rv_choice_card.setAdapter(adapter_done);
 
                 break;
 
-            case ACTION_IMAGE:
+            case ACTION_DEFAULT:
+                container_txt.setVisibility(View.VISIBLE);
+                txtMessage.setVisibility(View.VISIBLE);
+                txtTime.setVisibility(View.VISIBLE);
+                txtMessage.setText(chat.getMessage());
+                txtTime.setText(chat.getTimestamp());
+                dateLine.setVisibility(View.GONE);
+                rv_choice_card.setVisibility(View.VISIBLE);
+
+                ArrayList<SectionDataModel> array_action_default = new ArrayList<SectionDataModel>();
+                ArrayList<SingleItemModel> singleItem_default= new ArrayList<SingleItemModel>();
+                SectionDataModel dm_default = new SectionDataModel();
+
+
+                singleItem_default.add(new SingleItemModel("응", ACTION_MENU )); //수정 필요!
+                singleItem_default.add(new SingleItemModel("아니", ACTION_MENU)); //수정 필요!
+
+
+
+
+                dm_default.setAllItemInSection(singleItem_default);
+                array_action_default.add(dm_default);
+
+                rv_choice_card.setHasFixedSize(true);
+                RecyclerViewAdapter adapter_default = new RecyclerViewAdapter(context, array_action_default);
+                rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+                rv_choice_card.setAdapter(adapter_default);
+
+
+
+
+            case ACTION_BUTTON_IMAGE:
                 container_txt.setVisibility(View.VISIBLE);
                 //           txtCheck.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
@@ -203,10 +288,17 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
 
                 singleItem_image.add(new SingleItemModel("응", R.drawable.test, ACTION_MENU )); //수정 필요!
-
-
-
-
+//                singleItem_image.setOnClickListener(new this.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                switch (getLayoutPosition()) {
+//                                                    case 0:
+//                                                        Toast.makeText(itemView.getContext(), "웅", Toast.LENGTH_SHORT).show();
+//                                                        break;
+//                                                }
+//
+//                                            }
+//                                        }
                 dm_image.setAllItemInSection(singleItem_image);
                 array_action_image.add(dm_image);
 

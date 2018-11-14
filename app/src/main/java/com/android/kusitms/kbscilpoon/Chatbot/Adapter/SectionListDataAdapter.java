@@ -18,12 +18,15 @@ import com.android.kusitms.kbscilpoon.R;
 import java.util.ArrayList;
 
 import static com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity.current_room_no;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_CHECK;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder>  {
 
     private ArrayList<SingleItemModel> itemList;
     private Context mContext;
+    private ArrayList<Chat> chats;
+    Chat chat;
 
     public SectionListDataAdapter(Context context, ArrayList<SingleItemModel> itemList){
         this.itemList = itemList;
@@ -39,16 +42,21 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     }
 
     @Override
-    public void onBindViewHolder(SingleItemRowHolder holder, int i) {
+    public void onBindViewHolder(SingleItemRowHolder holder, int position) {
 
-        SingleItemModel singleItem = itemList.get(i);
+        SingleItemModel singleItem = itemList.get(position);
 
         holder.itemImage.setImageResource(singleItem.getImage());
         holder.tvTitle.setText(singleItem.getName());
         holder.tvCode.setText(singleItem.getUrl());
 
+        //Chat chat = chats.get(position);
+        //holder.bind(chat);
+
 
     }
+
+
 
 
     @Override
@@ -70,17 +78,53 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
             this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
 
 
+
+
+
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    switch (getLayoutPosition()){
-                        case 0:
-                            Toast.makeText(v.getContext(), "0", Toast.LENGTH_SHORT).show();
-                            break;
-                        case 1:
-                            Toast.makeText(v.getContext(),"1",Toast.LENGTH_SHORT).show();
+
+                    if(tvCode.getText() == ACTION_CHECK) {
+                        switch (getLayoutPosition()) {
+                            case 0:
+                                Toast.makeText(v.getContext(), "응", Toast.LENGTH_SHORT).show();
+                                break;
+
+                            case 1:
+                                Toast.makeText(v.getContext(), "아니", Toast.LENGTH_SHORT).show();
+                                break;
+                        }
                     }
+
+                    }
+
+
+//
+//                        switch(chat.getAction()){
+//                    case ACTION_CHECK:
+//                        switch (getLayoutPosition()) {
+//                            case 0:
+//                                Toast.makeText(v.getContext(), "응", Toast.LENGTH_SHORT).show();
+//                                break;
+//
+//                            case 1:
+//                                Toast.makeText(v.getContext(), "아니", Toast.LENGTH_SHORT).show();
+//                                break;
+//                            default:
+//                                Toast.makeText(v.getContext(), "없음", Toast.LENGTH_SHORT).show();
+//                        }
+//                        break;
+//                    default:
+//                        Toast.makeText(v.getContext(), "없음", Toast.LENGTH_SHORT).show();
+//
+//                }
+//
+//            }
+                  });
+
+
 
 
                     //Toast.makeText(v.getContext(), tvCode.getText(), Toast.LENGTH_SHORT).show();
@@ -92,11 +136,12 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
                     // messages_adapter.notifyDataSetChanged();
 
-                }
-            });
+
+
 
 
         }
-
     }
 }
+
+

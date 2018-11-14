@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.kusitms.kbscilpoon.Chatbot.Model.Chat;
 import com.android.kusitms.kbscilpoon.Chatbot.Model.SectionDataModel;
 import com.android.kusitms.kbscilpoon.R;
 
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ItemRowHolder>{
     private ArrayList<SectionDataModel> dataList;
     private Context mContext;
-
+    private Chat chat;
     public RecyclerViewAdapter(Context context, ArrayList<SectionDataModel> dataList) {
         this.dataList = dataList;
         this.mContext = mContext;
@@ -55,6 +56,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         itemRowHolder.recycler_view_list.setNestedScrollingEnabled(false);
 
 
+
         itemRowHolder.recycler_view_list.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -68,16 +70,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                         //Allow ScrollView to intercept touch events once again.
                         v.getParent().requestDisallowInterceptTouchEvent(false);
                         break;
+
                 }
                 // Handle RecyclerView touch events.
                 v.onTouchEvent(event);
                 return true;
+
             }
         });
+
+
+
 
         itemRowHolder.btnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
 
                 Toast.makeText(v.getContext(), "click event on more, "+sectionName , Toast.LENGTH_SHORT).show();
@@ -115,6 +123,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             this.recycler_view_list = (RecyclerView) view.findViewById(R.id.recycler_view_list);
             this.btnMore= (Button) view.findViewById(R.id.btnMore);
 
+
+            itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    // get position
+                    int pos = getAdapterPosition();
+
+                    // check if item still exists
+                    if(pos != RecyclerView.NO_POSITION){
+                        SectionDataModel clickedDataItem = dataList.get(pos);
+
+                    }
+                }
+            });
 
         }
 
