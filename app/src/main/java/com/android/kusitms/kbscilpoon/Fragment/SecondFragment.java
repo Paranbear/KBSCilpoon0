@@ -1,6 +1,5 @@
 package com.android.kusitms.kbscilpoon.Fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,13 +7,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.kusitms.kbscilpoon.Chatbot.Activity.Chatbot2Activity;
 import com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity;
 import com.android.kusitms.kbscilpoon.Fragment.Adapter.RecycleListViewAdapter;
 import com.android.kusitms.kbscilpoon.Fragment.Model.Contact;
@@ -57,6 +54,7 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         view.findViewById(R.id.dummy).setOnClickListener(this);
+        view.findViewById(R.id.dummy2).setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +62,12 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.dummy:
                 Intent intent = new Intent(this.getContext(), ChatbotActivity.class);
+                startActivity(intent);
+                break;
+        }
+        switch (v.getId()) {
+            case R.id.dummy2:
+                Intent intent = new Intent(this.getContext(), Chatbot2Activity.class);
                 startActivity(intent);
                 break;
         }
