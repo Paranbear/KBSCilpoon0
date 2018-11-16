@@ -38,15 +38,17 @@ import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.SHOW_CARD1;
 public class ChatbotActivity extends AppCompatActivity {
 
     public static ArrayList<Chat> chats = new ArrayList<Chat>();
+    public static ChatMessageAdapter message_adapter = new ChatMessageAdapter(chats);
+    public static RecyclerView rv_chat_message;
 
 
     public static String current_name = "100";//현재방에서 내 아이디
     public static String current_room_no;//현재방 아이디
-    public static String current_counter_name; //현재방에서 상대방 아이디
+    public static String current_counter_name="챗봇1"; //현재방에서 상대방 아이디
 
     Button btn_send_message;
     EditText edit_message;
-    RecyclerView rv_chat_message;
+
 
 
     @Override
@@ -207,7 +209,7 @@ public class ChatbotActivity extends AppCompatActivity {
 
     }
 
-    private void scroll_to_bottom() {
+    public void scroll_to_bottom() {
         rv_chat_message.scrollToPosition(chats.size() - 1);
     }
 
