@@ -10,21 +10,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity;
 import com.android.kusitms.kbscilpoon.Chatbot.Model.Chat;
 import com.android.kusitms.kbscilpoon.Chatbot.Model.SingleItemModel;
 import com.android.kusitms.kbscilpoon.Chatbot.Utils.DateFormat;
 import com.android.kusitms.kbscilpoon.R;
 
 import java.util.ArrayList;
-
+import static com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity.chats;
+import static com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity.current_name;
 import static com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity.current_room_no;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.POP_CARD;
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder>  {
 
     private ArrayList<SingleItemModel> itemList;
     private Context mContext;
-    private ArrayList<Chat> chats;
     Chat chat;
 
     public SectionListDataAdapter(Context context, ArrayList<SingleItemModel> itemList){
@@ -77,25 +78,29 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
             this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
 
 
-
-
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //2 넘어오는 데이터 파악
+                    Toast.makeText(v.getContext(), tvTitle.getText().toString() + tvCode.getText().toString(), Toast.LENGTH_SHORT).show();
+
+                    //3 case 생성 [.equals랑 ==쓰는거 조심]
+                    if (tvCode.getText().toString().equals("1")) {
+
+                        //4 필요한 객체 생성 & 더하기
+//                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "인기 카드 보여줘!", true, ACTION_TEXT);
+//                        chats.add(chat);
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "좌우 방향으로 카드를 넘겨볼 수 있어요", false, POP_CARD);
+                        chats.add(chat);
+
+                        //5 리스트 리프레시
+                        ChatbotActivity chatbotActivity = new ChatbotActivity();
+                        chatbotActivity.scroll_to_bottom();
 
 
-                    if(tvCode.getText() == "1.인기카드") {
-                        Toast.makeText(v.getContext(), "1.인기카드", Toast.LENGTH_SHORT).show();
-//                        switch (getLayoutPosition()) {
-//                            case 0:
-//
-//                                break;
-//
-//                            case 1:
-//                                Toast.makeText(v.getContext(), "아니", Toast.LENGTH_SHORT).show();
-//                                break;
-//                        }
-                       }
+                    }
+
+
 
                     }
 
@@ -126,14 +131,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
 
 
-                    //Toast.makeText(v.getContext(), tvCode.getText(), Toast.LENGTH_SHORT).show();
 
-                    Chat chat_mine = new Chat("11", current_room_no, DateFormat.date_apm(), tvTitle.getText().toString(), true, ACTION_TEXT);
-                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat_mine));
-                    Chat chat = new Chat("11", current_room_no, DateFormat.date_apm(), tvTitle.getText().toString(), true, tvCode.getText().toString());
-                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
-
-                    // messages_adapter.notifyDataSetChanged();
 
 
 
