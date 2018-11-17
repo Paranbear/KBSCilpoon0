@@ -22,8 +22,10 @@ import java.util.List;
 
 public class SecondFragment extends Fragment implements View.OnClickListener {
     View v;
+/*
     private RecyclerView myrecyclerview;
     private List<Contact> lstContact;
+*/
 
 
     public SecondFragment() {
@@ -33,14 +35,14 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_second, container, false);
-        myrecyclerview = (RecyclerView) v.findViewById(R.id.contact_recylceview);
+/*        myrecyclerview = (RecyclerView) v.findViewById(R.id.contact_recylceview);
         RecycleListViewAdapter recycleAdapter = new RecycleListViewAdapter(getContext(), lstContact);
         myrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
-        myrecyclerview.setAdapter(recycleAdapter);
+        myrecyclerview.setAdapter(recycleAdapter);*/
         return v;
     }
-
-    @Override
+//recycleview
+    /*@Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         lstContact = new ArrayList<>();
@@ -48,25 +50,34 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
         lstContact.add(new Contact("캐릭터2", "상담할려면 대화를 걸어줘", R.drawable.chatbot2));
         lstContact.add(new Contact("캐릭터3", "상담할려면 대화를 걸어줘", R.drawable.chatbot3));
 
-    }
+    }*/
 
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         view.findViewById(R.id.dummy).setOnClickListener(this);
         view.findViewById(R.id.dummy2).setOnClickListener(this);
+        view.findViewById(R.id.layout1).setOnClickListener(this);
+        view.findViewById(R.id.layout2).setOnClickListener(this);
+        view.findViewById(R.id.layout3).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.dummy:
+            case R.id.layout1:
                 Intent intent = new Intent(this.getContext(), ChatbotActivity.class);
                 startActivity(intent);
                 break;
         }
         switch (v.getId()) {
-            case R.id.dummy2:
+            case R.id.layout2:
+                Intent intent = new Intent(this.getContext(), Chatbot2Activity.class);
+                startActivity(intent);
+                break;
+        }
+        switch (v.getId()) {
+            case R.id.layout3:
                 Intent intent = new Intent(this.getContext(), Chatbot2Activity.class);
                 startActivity(intent);
                 break;
