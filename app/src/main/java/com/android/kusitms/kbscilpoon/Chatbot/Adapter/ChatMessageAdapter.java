@@ -269,7 +269,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
 
             case ACTION_TEXT:
-                profile.setImageResource(R.drawable.chatbot1);
+                //profile.setImageResource(R.drawable.chatbot1);
                 container_txt.setVisibility(View.VISIBLE);
                 //           txtCheck.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
