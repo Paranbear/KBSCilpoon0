@@ -44,6 +44,11 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
         return mh;
     }
 
+    public static void bind(final Chat chat) {
+
+
+    }
+
     @Override
     public void onBindViewHolder(SingleItemRowHolder holder, int position) {
 
@@ -53,12 +58,9 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
         holder.tvTitle.setText(singleItem.getName());
         holder.tvCode.setText(singleItem.getUrl());
 
-        //Chat chat = chats.get(position);
-        //holder.bind(chat);
 
 
     }
-
 
 
 
@@ -81,6 +83,9 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
             this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
 
 
+            bind(chat);
+
+
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -93,7 +98,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
                         //4 필요한 객체 생성 & 더하기
 //                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "인기 카드 보여줘!", true, ACTION_TEXT);
 //                        chats.add(chat);
-                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "좌우 방향으로 카드를 넘겨볼 수 있어요", false, POP_CARD);
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "좌우로 넘기면서 확인해봐!", false, POP_CARD);
                         chats.add(chat);
 
                         //5 리스트 리프레시
