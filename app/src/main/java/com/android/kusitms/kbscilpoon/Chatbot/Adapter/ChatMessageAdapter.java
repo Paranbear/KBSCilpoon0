@@ -149,14 +149,14 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
 
                 ArrayList<SectionDataModel> array_action_start = new ArrayList<SectionDataModel>();
-                ArrayList<SingleItemModel> singleItem_start = new ArrayList<SingleItemModel>();
+                ArrayList<SingleItemModel> singleItem_start = new ArrayList<>();
                 SectionDataModel dm_start = new SectionDataModel();
 
 
 
-                singleItem_start.add(new SingleItemModel("1.인기카드 추천", POP_CARD));
-                singleItem_start.add(new SingleItemModel("2.내게 맞는 추천", RECOMMEND_CARD));
-                singleItem_start.add(new SingleItemModel("3.바로신청", APPLY_CARD));
+                singleItem_start.add(new SingleItemModel("인기카드 추천", POP_CARD));
+                singleItem_start.add(new SingleItemModel("내게 맞는 추천", RECOMMEND_CARD));
+                singleItem_start.add(new SingleItemModel("바로신청", APPLY_CARD));
 
                 dm_start.setAllItemInSection(singleItem_start);
                 array_action_start.add(dm_start);
@@ -185,11 +185,10 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 SectionDataModel dm_popcard = new SectionDataModel();
 
 
+                singleItem_popcard.add(new SingleItemModel("<상세 보기1>", R.drawable.card1, ACTION_MENU ));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기2>", R.drawable.card2, ACTION_MENU ));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기3>", R.drawable.card3, ACTION_MENU ));
 
-                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
-                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
-                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
-                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
 
                 dm_popcard.setAllItemInSection(singleItem_popcard);
                 array_action_popcard.add(dm_popcard);
