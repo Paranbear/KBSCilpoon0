@@ -39,6 +39,8 @@
             android:layout_weight="1"
             android:text="챗봇들을 소개합니다" />
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,56 +52,63 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/layout_chatbot1"
+            <com.tmall.ultraviewpager.UltraViewPager
+                android:id="@+id/ultra_viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@android:color/background_light" />
 
-                <ImageView
-                    android:id="@+id/iv_chatbot1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:onClick="onChatbot1Clicked"
-                    app:srcCompat="@drawable/chatbot1" />
-            </LinearLayout>
+            <!--<LinearLayout-->
+                <!--android:id="@+id/layout_chatbot1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="horizontal">-->
 
-            <LinearLayout
-                android:id="@+id/layout_chatbot2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                <!--<ImageView-->
+                    <!--android:id="@+id/iv_chatbot1"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="100dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:onClick="onChatbot1Clicked"-->
+                    <!--app:srcCompat="@drawable/chatbot1" />-->
+            <!--</LinearLayout>-->
 
-                <ImageView
-                    android:id="@+id/iv_chatbot2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:onClick="onChatbot2Clicked"
-                    app:srcCompat="@drawable/chatbot2" />
-            </LinearLayout>
+            <!--<LinearLayout-->
+                <!--android:id="@+id/layout_chatbot2"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="horizontal">-->
 
-            <LinearLayout
-                android:id="@+id/layout_chatbot3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                <!--<ImageView-->
+                    <!--android:id="@+id/iv_chatbot2"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="100dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:onClick="onChatbot2Clicked"-->
+                    <!--app:srcCompat="@drawable/chatbot2" />-->
+            <!--</LinearLayout>-->
 
-                <ImageView
-                    android:id="@+id/iv_chatbot3"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:onClick="onChatbot3Clicked"
-                    app:srcCompat="@drawable/chatbot3" />
-            </LinearLayout>
+            <!--<LinearLayout-->
+                <!--android:id="@+id/layout_chatbot3"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/iv_chatbot3"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="100dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:onClick="onChatbot3Clicked"-->
+                    <!--app:srcCompat="@drawable/chatbot3" />-->
+            <!--</LinearLayout>-->
 
         </LinearLayout>
 
