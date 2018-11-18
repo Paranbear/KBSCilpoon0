@@ -31,8 +31,6 @@ import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_MENU;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.APPLY_CARD;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.DATE_LINE;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.POP_CARD;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.RECOMMEND_CARD;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.SHOW_CARD1;
 
 public class ChatbotActivity extends AppCompatActivity {
@@ -48,6 +46,7 @@ public class ChatbotActivity extends AppCompatActivity {
 
     Button btn_send_message;
     EditText edit_message;
+    Chat chat ;
 
 
 
@@ -59,7 +58,7 @@ public class ChatbotActivity extends AppCompatActivity {
         init_layout();
         init_system();
 
-        Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 안녕! 나는 너에게 맞는 체크카드를 추천해주고 발급을 도와주는 OO이야~ 궁금한 게 있으면 언제든 나를 찾아줘!", false, ACTION_MENU);
+         chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 안녕! 나는 너에게 맞는 체크카드를 추천해주고 발급을 도와주는 OO이야~ 궁금한 게 있으면 언제든 나를 찾아줘!", false, ACTION_MENU);
         chats.add(chat);
 
 
@@ -125,17 +124,7 @@ public class ChatbotActivity extends AppCompatActivity {
                     chats.add(chat);
 
                 }
-                if (getMessage().contains(POP_CARD)) { //텍스트 값과 정확히 일치할 때
-                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "좌우 방향으로 카드를 넘겨볼 수 있어요", false, POP_CARD);
-                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
-                    chats.add(chat);
-                }
-                if (getMessage().contains(RECOMMEND_CARD)) {  //텍스트 값을 포함할 때
-                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 이중에서너가제일원하는것을골라줘!", false, RECOMMEND_CARD);
-                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
-                    chats.add(chat);
 
-                }
                 if(getMessage().contains(APPLY_CARD)) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 생각해둔카드가있는거야?있다면말해줘!", false, ACTION_TEXT);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
@@ -147,11 +136,7 @@ public class ChatbotActivity extends AppCompatActivity {
                     chats.add(chat);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                 }
-//                if(getMessage().contains("5")) {
-//                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 추가로받고싶은혜택하나만더골라봐~", false, RECOMMEND_CARD);
-//                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
-//                    chats.add(chat);
-//                }
+
                 if (getMessage().contains("그만")||getMessage().contains("안")) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "정말 그만두시겠습니까?", false, ACTION_CHECK);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
@@ -161,6 +146,12 @@ public class ChatbotActivity extends AppCompatActivity {
                 if (getMessage().contains("re")) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "감정을 재기록하시겠어요?", false, ACTION_MENU);
                     chats.add(chat);
+                move();
+
+                }
+                if(getMessage().equals("move")){
+                    Intent intent = new Intent(getApplicationContext(),IntroduceActivity.class);
+                    startActivityForResult(intent, 50);
                 }
                 if(getMessage().contains("image")) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "이미지 보여주기", false, ACTION_BUTTON_IMAGE);
@@ -171,10 +162,8 @@ public class ChatbotActivity extends AppCompatActivity {
                     startActivityForResult(intent, 50);
                 }
                 if(getMessage().equals("image2")) {
-                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "이미지 상단에 보여주기", false, ACTION_JUST_IMAGE);
-                    chats.add(chat);
+                    move();
                 }
-
 
 
 
@@ -220,6 +209,13 @@ public class ChatbotActivity extends AppCompatActivity {
 
 
 
+    public void move(){
+
+        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "이미지 상단에 보여주기", false, ACTION_JUST_IMAGE);
+        chats.add(chat);
+
+        //  
+    }
 
 }
 
