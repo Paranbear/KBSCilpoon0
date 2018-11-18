@@ -17,10 +17,13 @@ import com.android.kusitms.kbscilpoon.Chatbot.Utils.DateFormat;
 import com.android.kusitms.kbscilpoon.R;
 
 import java.util.ArrayList;
+
 import static com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity.chats;
 import static com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity.current_name;
 import static com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity.current_room_no;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.APPLY_CARD;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.POP_CARD;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.RECOMMEND_CARD;
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder>  {
 
@@ -99,6 +102,36 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
 
                     }
+                    if (tvCode.getText().toString().equals("2")) {
+
+                        //4 필요한 객체 생성 & 더하기
+//                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "인기 카드 보여줘!", true, ACTION_TEXT);
+//                        chats.add(chat);
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 이중에서너가제일원하는것을골라줘!", false, RECOMMEND_CARD);
+                        chats.add(chat);
+
+                        //5 리스트 리프레시
+                        ChatbotActivity chatbotActivity = new ChatbotActivity();
+                        chatbotActivity.scroll_to_bottom();
+
+
+                    }
+                    if (tvCode.getText().toString().equals("3")) {
+
+                        //4 필요한 객체 생성 & 더하기
+//                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "인기 카드 보여줘!", true, ACTION_TEXT);
+//                        chats.add(chat);
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "생각해둔카드가있는거야?있다면말해줘!", false, APPLY_CARD);
+                        chats.add(chat);
+
+                        //5 리스트 리프레시
+                        ChatbotActivity chatbotActivity = new ChatbotActivity();
+                        chatbotActivity.scroll_to_bottom();
+
+
+                    }
+
+
 
 
 
