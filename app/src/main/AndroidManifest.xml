@@ -26,6 +26,8 @@
             android:theme="@style/AppTheme.NoTitleBar" />
         <activity android:name=".Chatbot.Activity.ChatbotActivity"></activity>
         <activity android:name=".Chatbot.Activity.Chatbot2Activity"></activity>
+        <activity android:name=".Fragment.Activity.MateActivity"></activity>
+        <activity android:name=".Fragment.Activity.InforActivity"> </activity>
     </application>
 
 </manifest>
