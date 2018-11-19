@@ -1,6 +1,7 @@
 package com.android.kusitms.kbscilpoon.Chatbot.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.kusitms.kbscilpoon.Chatbot.Activity.CardDetail1;
+import com.android.kusitms.kbscilpoon.Chatbot.Activity.CardDetail2;
+import com.android.kusitms.kbscilpoon.Chatbot.Activity.CardDetail3;
 import com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity;
 import com.android.kusitms.kbscilpoon.Chatbot.Model.Chat;
 import com.android.kusitms.kbscilpoon.Chatbot.Model.SingleItemModel;
@@ -152,6 +156,22 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
 
                     }
+                    if(tvCode.getText().toString().equals("b1")){
+                        Intent intent = new Intent(v.getContext(),CardDetail1.class);
+                        v.getContext().startActivity(intent);
+
+                    }
+                    if(tvCode.getText().toString().equals("b2")) {
+                        Intent intent = new Intent(v.getContext(), CardDetail2.class);
+                        v.getContext().startActivity(intent);
+
+
+                    }
+                    if(tvCode.getText().toString().equals("b3")) {
+                        Intent intent = new Intent(v.getContext(), CardDetail3.class);
+                        v.getContext().startActivity(intent);
+                    }
+
 
 
 

@@ -24,20 +24,21 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoTitleBar" />
-<<<<<<< HEAD
+
         <activity android:name=".Chatbot.Activity.ChatbotActivity"></activity>
         <activity android:name=".Chatbot.Activity.Chatbot2Activity"></activity>
         <activity android:name=".Fragment.Activity.MateActivity"></activity>
         <activity android:name=".Fragment.Activity.InforActivity"> </activity>
-<<<<<<< HEAD
-=======
-=======
-        <activity android:name=".Chatbot.Activity.ChatbotActivity" />
-        <activity android:name=".Chatbot.Activity.Chatbot2Activity" />
-        <activity android:name=".Chatbot.Activity.CardDetail1"
-                    android:theme="@android:style/Theme.Dialog" ></activity>
->>>>>>> d957c8bfbfcae95a2cf0405253d4a4408f8057e3
->>>>>>> 82db9e06303052a454267b578cbc2b0b0d989b63
+
+        <activity
+            android:name=".Chatbot.Activity.CardDetail1"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name=".Chatbot.Activity.CardDetail2"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".Chatbot.Activity.CardDetail3"
+            android:theme="@android:style/Theme.Dialog" ></activity>
+
     </application>
 
 </manifest>
