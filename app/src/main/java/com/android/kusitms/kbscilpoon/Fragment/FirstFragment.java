@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.kusitms.kbscilpoon.FoldingCell;
 import com.android.kusitms.kbscilpoon.R;
@@ -30,7 +31,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
 
-        view.findViewById(R.id.toggle_btn).setOnClickListener(this);
+        view.findViewById(R.id.title_view).setOnClickListener(this);
         view.findViewById(R.id.toggle_instant_btn).setOnClickListener(this);
 
 
@@ -39,10 +40,29 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 82db9e06303052a454267b578cbc2b0b0d989b63
+            case R.id.title_view:
+                Toast.makeText(getContext(),
+                        "Button is clicked", Toast.LENGTH_LONG).show();
+
+<<<<<<< HEAD
+                break;
+
+
+=======
+                break;
+
+
+=======
             case R.id.toggle_btn:
                 fc.toggle(true);
                 break;
 
+>>>>>>> d957c8bfbfcae95a2cf0405253d4a4408f8057e3
+>>>>>>> 82db9e06303052a454267b578cbc2b0b0d989b63
             case R.id.toggle_instant_btn:
                 fc.toggle(true);
                 break;

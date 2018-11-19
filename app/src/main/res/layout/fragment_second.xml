@@ -35,14 +35,11 @@
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="69dp"
-        android:layout_marginTop="148dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="168dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/dummy2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.055"
-        tools:layout_editor_absoluteX="16dp">
+        tools:layout_editor_absoluteX="0dp">
 
 
         <ImageView
@@ -50,7 +47,7 @@
             android:layout_width="80dp"
             android:layout_height="68dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/chatbot1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
@@ -65,7 +62,7 @@
             android:layout_marginEnd="248dp"
             android:layout_marginBottom="8dp"
             android:layout_weight="1"
-            android:text="bbb"
+            android:text="캐릭터1"
             android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +79,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="aaa"
+            android:text="ㅎㅎ"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.254"
@@ -115,13 +112,13 @@
         android:id="@+id/layout2"
         android:layout_width="match_parent"
         android:layout_height="69dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="236dp"
         android:layout_marginBottom="8dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/dummy2"
+        app:layout_constraintBottom_toTopOf="@+id/layout3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.421"
+        app:layout_constraintVertical_bias="0.589"
         tools:layout_editor_absoluteX="0dp">
 
 
@@ -130,7 +127,7 @@
             android:layout_width="80dp"
             android:layout_height="68dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/chatbot2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
@@ -142,14 +139,11 @@
             android:layout_height="31dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="248dp"
             android:layout_marginBottom="8dp"
             android:layout_weight="1"
-            android:text="bbb"
+            android:text="캐릭터2"
             android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
@@ -162,7 +156,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="aaa"
+            android:text="ㅎㅎ"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.254"
@@ -179,7 +173,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="10dp"
-            android:text="time12222222222222222222"
+            android:text="time"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.976"
@@ -197,13 +191,13 @@
         android:id="@+id/layout3"
         android:layout_width="match_parent"
         android:layout_height="69dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="316dp"
         android:layout_marginBottom="8dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/dummy2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.826"
+        app:layout_constraintVertical_bias="0.305"
         tools:layout_editor_absoluteX="0dp">
 
 
@@ -212,7 +206,7 @@
             android:layout_width="80dp"
             android:layout_height="68dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/ic_launcher_background"
+            android:src="@drawable/chatbot3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
@@ -224,13 +218,13 @@
             android:layout_height="31dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="248dp"
+            android:layout_marginEnd="188dp"
             android:layout_marginBottom="8dp"
             android:layout_weight="1"
-            android:text="bbb"
+            android:text="캐릭터3"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/Textsmall3"
+            app:layout_constraintEnd_toStartOf="@+id/time3"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/iv_char"
             app:layout_constraintTop_toTopOf="parent"
@@ -244,10 +238,10 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="aaㅈㅈㅈㅈㅈㅈㅈㅈa"
+            android:text="ㅎ하"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.254"
+            app:layout_constraintHorizontal_bias="0.356"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
@@ -272,31 +266,5 @@
 
     </android.support.constraint.ConstraintLayout>   <!--세번째 끝 -->
 
-
-
-    <Button
-            android:id="@+id/dummy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="44dp"
-            android:text="dummy"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.914"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/dummy2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="48dp"
-        android:text="dummy2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/dummy"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

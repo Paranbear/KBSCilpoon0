@@ -24,8 +24,12 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoTitleBar" />
-        <activity android:name=".Chatbot.Activity.ChatbotActivity" />
-        <activity android:name=".Chatbot.Activity.Chatbot2Activity" />
+
+        <activity android:name=".Chatbot.Activity.ChatbotActivity"></activity>
+        <activity android:name=".Chatbot.Activity.Chatbot2Activity"></activity>
+        <activity android:name=".Fragment.Activity.MateActivity"></activity>
+        <activity android:name=".Fragment.Activity.InforActivity"> </activity>
+
         <activity
             android:name=".Chatbot.Activity.CardDetail1"
             android:theme="@android:style/Theme.Dialog" />
@@ -34,6 +38,7 @@
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".Chatbot.Activity.CardDetail3"
             android:theme="@android:style/Theme.Dialog" ></activity>
+
     </application>
 
 </manifest>
