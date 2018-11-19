@@ -68,6 +68,16 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            case R.id.dummy2:
+                Intent intent2 = new Intent(this.getContext(), Chatbot2Activity.class);
+                startActivity(intent2);
+
+>>>>>>> d957c8bfbfcae95a2cf0405253d4a4408f8057e3
+>>>>>>> 82db9e06303052a454267b578cbc2b0b0d989b63
         }
         switch (v.getId()) {
             case R.id.layout2:

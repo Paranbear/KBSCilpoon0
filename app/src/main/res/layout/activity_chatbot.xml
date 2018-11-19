@@ -40,7 +40,12 @@
             android:hint="  메시지를 입력하세요"
             android:onClick="onWriteClicked"
             android:textColor="#555555"
+<<<<<<< HEAD
             android:textSize="16sp" />
+=======
+            android:textSize="16sp"
+            android:padding="2dp"/>
+>>>>>>> d957c8bfbfcae95a2cf0405253d4a4408f8057e3
 
         <Button
             android:id="@+id/btn_send_message"

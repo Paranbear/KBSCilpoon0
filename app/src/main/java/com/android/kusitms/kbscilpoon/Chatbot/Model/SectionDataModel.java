@@ -6,6 +6,7 @@ public class SectionDataModel {
     private String headerChat;
     private ArrayList<SingleItemModel>allItemInSection;
 
+
     public SectionDataModel() {
 
     }
@@ -13,6 +14,7 @@ public class SectionDataModel {
         this.headerChat = headerChat;
         this.allItemInSection = allItemInSection;
     }
+
 
     public String getHeaderChat() {
         return headerChat;
