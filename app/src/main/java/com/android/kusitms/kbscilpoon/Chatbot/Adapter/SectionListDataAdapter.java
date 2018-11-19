@@ -42,7 +42,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
     @NonNull
     @Override
-    public SectionListDataAdapter.SingleItemRowHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public SingleItemRowHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_single, null);
         SingleItemRowHolder mh = new SingleItemRowHolder(v);
         return mh;
@@ -125,7 +125,6 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
 
                     }
-<<<<<<< HEAD
                     if (tvCode.getText().toString().equals("2")) {
 
                         //4 필요한 객체 생성 & 더하기
@@ -140,8 +139,6 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
 
                     }
-=======
->>>>>>> d957c8bfbfcae95a2cf0405253d4a4408f8057e3
                     if (tvCode.getText().toString().equals("3")) {
 
                         //4 필요한 객체 생성 & 더하기
