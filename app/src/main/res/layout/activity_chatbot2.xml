@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Chatbot.Activity.ChatbotActivity"
+    tools:context=".Chatbot.Activity.Chatbot2Activity"
     >
 
 
@@ -20,11 +20,10 @@
     <LinearLayout
         android:id="@+id/linear_bottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="53dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#BDBDBD"
         android:gravity="center_vertical"
         android:paddingBottom="4dp"
         android:paddingLeft="8dp"
@@ -34,27 +33,26 @@
 
         <EditText
             android:id="@+id/edit_message"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-
-            android:textColor="#555555"
-            android:textSize="16sp"
+            android:background="@drawable/edit_txtfield"
+            android:hint="  메시지를 입력하세요"
             android:onClick="onWriteClicked"
-
-            />
+            android:textColor="#555555"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btn_send_message"
-            android:layout_width="72dp"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginBottom="2dp"
             android:layout_marginLeft="8dp"
-            android:background="#8C8C8C"
+            android:shadowRadius="45"
+            android:background="@drawable/send"
             android:elevation="4dp"
-            android:orientation="vertical"
-            android:text="OK"
             android:onClick="onSendClicked"
+            android:orientation="vertical"
             android:textColor="#FAE0D4" />
 
     </LinearLayout>

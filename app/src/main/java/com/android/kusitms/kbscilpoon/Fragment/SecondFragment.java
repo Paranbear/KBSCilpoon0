@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.android.kusitms.kbscilpoon.Chatbot.Activity.Chatbot2Activity;
 import com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity;
 import com.android.kusitms.kbscilpoon.R;
+
 public class SecondFragment extends Fragment implements View.OnClickListener {
     View v;
 /*
@@ -61,13 +62,10 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
 
-
-
-
         }
         switch (v.getId()) {
             case R.id.layout2:
-                Intent intent = new Intent(this.getContext(), Chatbot2Activity.class);
+                Intent intent = new Intent(this.getContext(), ChatbotActivity.class);
                 startActivity(intent);
                 break;
         }

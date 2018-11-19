@@ -33,4 +33,18 @@ public class Constant {
     public static final String TAG_USER_NO = "user_no";
     public static final String TAG_CUSTOMER = "customer";
     public static final String TAG_MESSAGE = "message";
+
+    public static final String LOGIN="0";
+
+    public static final String EXPENSE="1";
+    public static final String EXPENSE_IMAGE="EXPENSE_IMAGE";
+    public static final String EXPENSE_DETAIL="DETAIL";
+
+
+    public static final String BENEFIT="2";
+
+    public static final String GOALS="3";
+    public static final String GOALS_IMAGE="GOALS_IMAGE";
+    public static final String GOALS_DETAIL="GOALS_DETAIL";
+
 }
