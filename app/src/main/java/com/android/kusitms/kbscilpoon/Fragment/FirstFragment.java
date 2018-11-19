@@ -46,6 +46,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
                         "Button is clicked", Toast.LENGTH_LONG).show();
                 break;
 
+
             case R.id.toggle_btn:
                 fc.toggle(true);
                 break;
