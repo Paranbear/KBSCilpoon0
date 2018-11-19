@@ -30,14 +30,8 @@
         <activity android:name=".Fragment.Activity.MateActivity"></activity>
         <activity android:name=".Fragment.Activity.InforActivity"> </activity>
 
-        <activity
-            android:name=".Chatbot.Activity.CardDetail1"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name=".Chatbot.Activity.CardDetail2"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".Chatbot.Activity.CardDetail3"
-            android:theme="@android:style/Theme.Dialog" ></activity>
+        <activity android:name=".Chatbot.Activity.CardDetail1"
+                    android:theme="@android:style/Theme.Dialog" ></activity>
 
     </application>
 

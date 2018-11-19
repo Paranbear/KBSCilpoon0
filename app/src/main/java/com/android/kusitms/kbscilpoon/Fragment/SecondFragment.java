@@ -5,20 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.kusitms.kbscilpoon.Chatbot.Activity.Chatbot2Activity;
 import com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity;
-import com.android.kusitms.kbscilpoon.Fragment.Adapter.RecycleListViewAdapter;
-import com.android.kusitms.kbscilpoon.Fragment.Model.Contact;
 import com.android.kusitms.kbscilpoon.R;
 
-import java.util.ArrayList;
-import java.util.List;
 public class SecondFragment extends Fragment implements View.OnClickListener {
     View v;
 /*
@@ -68,20 +62,10 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-            case R.id.dummy2:
-                Intent intent2 = new Intent(this.getContext(), Chatbot2Activity.class);
-                startActivity(intent2);
-
->>>>>>> d957c8bfbfcae95a2cf0405253d4a4408f8057e3
->>>>>>> 82db9e06303052a454267b578cbc2b0b0d989b63
         }
         switch (v.getId()) {
             case R.id.layout2:
-                Intent intent = new Intent(this.getContext(), Chatbot2Activity.class);
+                Intent intent = new Intent(this.getContext(), ChatbotActivity.class);
                 startActivity(intent);
                 break;
         }

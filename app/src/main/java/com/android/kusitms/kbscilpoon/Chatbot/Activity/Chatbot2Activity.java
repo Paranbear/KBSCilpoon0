@@ -14,7 +14,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.android.kusitms.kbscilpoon.Chatbot.Adapter.ChatMessageAdapter;
+import com.android.kusitms.kbscilpoon.Chatbot.Adapter.ChatMessage2Adapter;
 import com.android.kusitms.kbscilpoon.Chatbot.Model.Chat;
 import com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant;
 import com.android.kusitms.kbscilpoon.Chatbot.Utils.DateFormat;
@@ -31,22 +31,23 @@ import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_MENU;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.APPLY_CARD;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.DATE_LINE;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.POP_CARD;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.RECOMMEND_CARD;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.SHOW_CARD1;
 
 public class Chatbot2Activity extends AppCompatActivity {
 
     public static ArrayList<Chat> chats = new ArrayList<Chat>();
+    public static ChatMessage2Adapter message_adapter = new ChatMessage2Adapter(chats);
+    public static RecyclerView rv_chat_message;
 
 
     public static String current_name = "100";//현재방에서 내 아이디
     public static String current_room_no;//현재방 아이디
-    public static String current_counter_name; //현재방에서 상대방 아이디
+    public static String current_counter_name="챗봇1"; //현재방에서 상대방 아이디
 
     Button btn_send_message;
     EditText edit_message;
-    RecyclerView rv_chat_message;
+    Chat chat ;
+
 
 
     @Override
@@ -57,7 +58,7 @@ public class Chatbot2Activity extends AppCompatActivity {
         init_layout();
         init_system();
 
-        Chat chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 지출을 관리하는 나는 뼝아리! 넌 이제 죽었다.", false, ACTION_MENU);
+        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 안녕! 나는너의소비생활을관리해줄OO 이야!! 돈헤프게쓰고다니면내가잔소리폭탄을날려줄거니까각오하라구~", false, ACTION_MENU);
         chats.add(chat);
 
 
@@ -73,7 +74,7 @@ public class Chatbot2Activity extends AppCompatActivity {
 
         rv_chat_message.setLayoutManager(new LinearLayoutManager(this));
         rv_chat_message.addItemDecoration(new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.HORIZONTAL));
-        rv_chat_message.setAdapter(new ChatMessageAdapter(chats));
+        rv_chat_message.setAdapter(new ChatMessage2Adapter(chats));
 
     }
 
@@ -114,6 +115,7 @@ public class Chatbot2Activity extends AppCompatActivity {
                 if (getMessage().contains(ACTION_MENU)) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "안녕하세요. 챗봇1입니다 더 궁금하신 점이 있나요?", false, ACTION_MENU);
                     chats.add(chat); //10.23 추가사항
+
                 }
 
                 if (getMessage().contains(ACTION_DONE)) {
@@ -122,17 +124,7 @@ public class Chatbot2Activity extends AppCompatActivity {
                     chats.add(chat);
 
                 }
-                if (getMessage().contains(POP_CARD)) { //텍스트 값과 정확히 일치할 때
-                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "좌우 방향으로 카드를 넘겨볼 수 있어요", false, POP_CARD);
-                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
-                    chats.add(chat);
-                }
-                if (getMessage().contains(RECOMMEND_CARD)) {  //텍스트 값을 포함할 때
-                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 이중에서너가제일원하는것을골라줘!", false, RECOMMEND_CARD);
-                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
-                    chats.add(chat);
 
-                }
                 if(getMessage().contains(APPLY_CARD)) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 생각해둔카드가있는거야?있다면말해줘!", false, ACTION_TEXT);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
@@ -144,11 +136,7 @@ public class Chatbot2Activity extends AppCompatActivity {
                     chats.add(chat);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
                 }
-//                if(getMessage().contains("5")) {
-//                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 추가로받고싶은혜택하나만더골라봐~", false, RECOMMEND_CARD);
-//                    //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
-//                    chats.add(chat);
-//                }
+
                 if (getMessage().contains("그만")||getMessage().contains("안")) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "정말 그만두시겠습니까?", false, ACTION_CHECK);
                     //mWebSocketClient.send(ChatUtils.chat_to_json_text(chat));
@@ -158,6 +146,12 @@ public class Chatbot2Activity extends AppCompatActivity {
                 if (getMessage().contains("re")) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "감정을 재기록하시겠어요?", false, ACTION_MENU);
                     chats.add(chat);
+                    move();
+
+                }
+                if(getMessage().equals("move")){
+                    Intent intent = new Intent(getApplicationContext(),IntroduceActivity.class);
+                    startActivityForResult(intent, 50);
                 }
                 if(getMessage().contains("image")) {
                     chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "이미지 보여주기", false, ACTION_BUTTON_IMAGE);
@@ -168,14 +162,8 @@ public class Chatbot2Activity extends AppCompatActivity {
                     startActivityForResult(intent, 50);
                 }
                 if(getMessage().equals("image2")) {
-                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "이미지 상단에 보여주기", false, ACTION_JUST_IMAGE);
-                    chats.add(chat);
+                    move();
                 }
-                else{
-                    chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "머라는거야", false, ACTION_CHECK);
-                    chats.add(chat);
-                }
-
 
 
 
@@ -210,7 +198,7 @@ public class Chatbot2Activity extends AppCompatActivity {
 
     }
 
-    private void scroll_to_bottom() {
+    public void scroll_to_bottom() {
         rv_chat_message.scrollToPosition(chats.size() - 1);
     }
 
@@ -221,6 +209,13 @@ public class Chatbot2Activity extends AppCompatActivity {
 
 
 
+    public void move(){
+
+        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "이미지 상단에 보여주기", false, ACTION_JUST_IMAGE);
+        chats.add(chat);
+
+        //
+    }
 
 }
 
