@@ -40,6 +40,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+<<<<<<< HEAD
             case R.id.title_view:
                 Toast.makeText(getContext(),
                         "Button is clicked", Toast.LENGTH_LONG).show();
@@ -47,6 +48,12 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
                 break;
 
 
+=======
+            case R.id.toggle_btn:
+                fc.toggle(true);
+                break;
+
+>>>>>>> d957c8bfbfcae95a2cf0405253d4a4408f8057e3
             case R.id.toggle_instant_btn:
                 fc.toggle(true);
                 break;
