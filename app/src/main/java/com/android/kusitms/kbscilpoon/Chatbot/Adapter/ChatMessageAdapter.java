@@ -25,6 +25,9 @@ import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_JUST_
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_MENU;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.APPLY_CARD;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.BENEFIT_1;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.BENEFIT_2;
+import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.BENEFIT_3;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.DATE_LINE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.POP_CARD;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.RECOMMEND_CARD;
@@ -185,9 +188,9 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 SectionDataModel dm_popcard = new SectionDataModel();
 
 
-                singleItem_popcard.add(new SingleItemModel("<상세 보기1>", R.drawable.card1, ACTION_MENU ));
-                singleItem_popcard.add(new SingleItemModel("<상세 보기2>", R.drawable.card2, ACTION_MENU ));
-                singleItem_popcard.add(new SingleItemModel("<상세 보기3>", R.drawable.card3, ACTION_MENU ));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기1>", R.drawable.card1, BENEFIT_1));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기2>", R.drawable.card2, BENEFIT_2 ));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기3>", R.drawable.card3, BENEFIT_3 ));
 
 
                 dm_popcard.setAllItemInSection(singleItem_popcard);
