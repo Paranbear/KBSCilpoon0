@@ -3,4 +3,9 @@
     <color name="colorPrimary">#e0efee</color>
     <color name="colorPrimaryDark">#cadedb</color>
     <color name="colorAccent">#f1e8eb</color>
+    <color name="colorBar">#F5F5F5</color>
+    <color name="colorTobBar">#EAEAEA</color>
+
+    <color name="colorAnswer">#FFE600</color>
+    <color name="colorCard">#FFC41E</color>
 </resources>

@@ -19,7 +19,6 @@ import com.android.kusitms.kbscilpoon.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class SecondFragment extends Fragment implements View.OnClickListener {
     View v;
 /*
@@ -55,8 +54,7 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        view.findViewById(R.id.dummy).setOnClickListener(this);
-        view.findViewById(R.id.dummy2).setOnClickListener(this);
+   
         view.findViewById(R.id.layout1).setOnClickListener(this);
         view.findViewById(R.id.layout2).setOnClickListener(this);
         view.findViewById(R.id.layout3).setOnClickListener(this);
@@ -69,6 +67,7 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
                 Intent intent = new Intent(this.getContext(), ChatbotActivity.class);
                 startActivity(intent);
                 break;
+
         }
         switch (v.getId()) {
             case R.id.layout2:
@@ -80,8 +79,10 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
             case R.id.layout3:
                 Intent intent = new Intent(this.getContext(), Chatbot2Activity.class);
                 startActivity(intent);
+
                 break;
         }
+
     }
 
     //클릭 리스너
