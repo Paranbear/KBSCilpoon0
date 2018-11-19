@@ -125,23 +125,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
 
                     }
-<<<<<<< HEAD
-                    if (tvCode.getText().toString().equals("2")) {
 
-                        //4 필요한 객체 생성 & 더하기
-//                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "인기 카드 보여줘!", true, ACTION_TEXT);
-//                        chats.add(chat);
-                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 이중에서너가제일원하는것을골라줘!", false, RECOMMEND_CARD);
-                        chats.add(chat);
-
-                        //5 리스트 리프레시
-                        ChatbotActivity chatbotActivity = new ChatbotActivity();
-                        chatbotActivity.scroll_to_bottom();
-
-
-                    }
-=======
->>>>>>> d957c8bfbfcae95a2cf0405253d4a4408f8057e3
                     if (tvCode.getText().toString().equals("3")) {
 
                         //4 필요한 객체 생성 & 더하기

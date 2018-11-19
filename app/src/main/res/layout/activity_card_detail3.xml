@@ -373,6 +373,14 @@
         </ScrollView>
 
     </LinearLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/makeupbtn"
+        android:text="카드 신청하기"
+        android:textStyle="bold"
+        android:onClick="onMake3Clicked"/>
 
 
 </LinearLayout>

@@ -256,6 +256,8 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
 
                 singleItem_showcard.add(new SingleItemModel("노리카드", R.drawable.cardtest, SHOW_CARD1));
+                singleItem_showcard.add(new SingleItemModel("노리카드", R.drawable.cardtest, SHOW_CARD1));
+                singleItem_showcard.add(new SingleItemModel("노리카드", R.drawable.cardtest, SHOW_CARD1));
 
                 dm_showcard.setAllItemInSection(singleItem_showcard);
                 array_action_showcard.add(dm_showcard);
