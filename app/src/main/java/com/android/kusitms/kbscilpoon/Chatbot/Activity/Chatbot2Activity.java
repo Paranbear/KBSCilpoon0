@@ -210,7 +210,7 @@ public class Chatbot2Activity extends AppCompatActivity {
 
     }
 
-    private void scroll_to_bottom() {
+    public void scroll_to_bottom() {
         rv_chat_message.scrollToPosition(chats.size() - 1);
     }
 

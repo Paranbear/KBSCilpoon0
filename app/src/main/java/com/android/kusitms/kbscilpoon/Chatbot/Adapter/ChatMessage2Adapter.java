@@ -21,8 +21,6 @@ import java.util.ArrayList;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_MENU;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.BENEFIT;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.EXPENSE;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.EXPENSE_DETAIL;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.EXPENSE_IMAGE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.GOALS;
 
 public class ChatMessage2Adapter extends RecyclerView.Adapter<ChatMessage2ViewHolder> {
@@ -184,8 +182,8 @@ class ChatMessage2ViewHolder extends RecyclerView.ViewHolder {
                 SectionDataModel dm_popcard = new SectionDataModel();
 
 
-                singleItem_popcard.add(new SingleItemModel("<상세 보기1>", R.drawable.card1, EXPENSE_IMAGE));
-                singleItem_popcard.add(new SingleItemModel("<상세 보기2>", R.drawable.card2, EXPENSE_DETAIL ));
+            //    singleItem_popcard.add(new SingleItemModel("<상세 보기1>", R.drawable.card1, EXPENSE_IMAGE));
+             //   singleItem_popcard.add(new SingleItemModel("<상세 보기2>", R.drawable.card2, EXPENSE_DETAIL ));
 
 
                 dm_popcard.setAllItemInSection(singleItem_popcard);

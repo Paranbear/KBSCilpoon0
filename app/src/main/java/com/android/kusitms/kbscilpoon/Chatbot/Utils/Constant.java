@@ -26,4 +26,10 @@ public class Constant {
     public static final String TAG_USER_NO = "user_no";
     public static final String TAG_CUSTOMER = "customer";
     public static final String TAG_MESSAGE = "message";
+
+    public static final String EXPENSE= "1";
+    public static final String BENEFIT = "2";
+    public static final String GOALS= "3";
+
+
 }
