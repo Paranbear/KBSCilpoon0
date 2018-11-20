@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#e0efee</color>
-    <color name="colorPrimaryDark">#cadedb</color>
+    <color name="colorPrimaryDark">#ffee00</color>
     <color name="colorAccent">#f1e8eb</color>
-    <color name="colorBar">#F5F5F5</color>
-    <color name="colorTobBar">#EAEAEA</color>
-
-    <color name="colorAnswer">#FFE600</color>
-    <color name="colorCard">#FFC41E</color>
-
-    <color name="colorText1">#5B5B5B</color>
 </resources>

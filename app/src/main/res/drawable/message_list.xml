@@ -3,7 +3,7 @@
     android:shape="rectangle"
     >
     <solid
-        android:color="@color/colorCard"/>
+        android:color="#C7D3ED"/>
 
     <!--모서리 둥글게하기 -->
     <corners

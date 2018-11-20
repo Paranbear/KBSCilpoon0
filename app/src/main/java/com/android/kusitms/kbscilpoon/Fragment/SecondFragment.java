@@ -1,20 +1,35 @@
 package com.android.kusitms.kbscilpoon.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
-import com.android.kusitms.kbscilpoon.Chatbot.Activity.Chatbot2Activity;
 import com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity;
+import com.android.kusitms.kbscilpoon.Fragment.Adapter.ListVIewAdpater;
+import com.android.kusitms.kbscilpoon.Fragment.Adapter.RecycleListViewAdapter;
+import com.android.kusitms.kbscilpoon.Fragment.Model.Contact;
 import com.android.kusitms.kbscilpoon.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SecondFragment extends Fragment implements View.OnClickListener {
-    View v;
+    ListVIewAdpater adapter;
+
 /*
     private RecyclerView myrecyclerview;
     private List<Contact> lstContact;
@@ -27,57 +42,51 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_second, container, false);
-/*        myrecyclerview = (RecyclerView) v.findViewById(R.id.contact_recylceview);
-        RecycleListViewAdapter recycleAdapter = new RecycleListViewAdapter(getContext(), lstContact);
-        myrecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
-        myrecyclerview.setAdapter(recycleAdapter);*/
-        return v;
-    }
-//recycleview
-    /*@Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        lstContact = new ArrayList<>();
-        lstContact.add(new Contact("캐릭터1", "상담할려면 대화를 걸어줘 ", R.drawable.chatbot1));
-        lstContact.add(new Contact("캐릭터2", "상담할려면 대화를 걸어줘", R.drawable.chatbot2));
-        lstContact.add(new Contact("캐릭터3", "상담할려면 대화를 걸어줘", R.drawable.chatbot3));
+        View view = inflater.inflate(R.layout.fragment_second, container, false);
+        adapter = new ListVIewAdpater();
+        ListView listview = (ListView) view.findViewById(R.id.listview_item);
 
-    }*/
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.chatbot1), "Box", "Account Box Black 36dp");
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.chatbot2), "Circle", "Account Circle Black 36dp");
+        adapter.addItem(ContextCompat.getDrawable(getActivity(), R.drawable.chatbot3), "Ind", "Assignment Ind Black 36dp");
+        listview.setAdapter(adapter);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                parent.getItemAtPosition(position);
+
+                switch (position) {
+                    case 0:
+                        Intent intent = new Intent(getActivity().getApplicationContext(), ChatbotActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        Intent intent1 = new Intent(getActivity().getApplicationContext(), ChatbotActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case 2:
+                        Intent intent2 = new Intent(getActivity().getApplicationContext(), ChatbotActivity.class);
+                        startActivity(intent2);
+                        break;
+
+                }
+
+            }
+        });
+        return view;
+    }
 
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-   
-        view.findViewById(R.id.layout1).setOnClickListener(this);
-        view.findViewById(R.id.layout2).setOnClickListener(this);
-        view.findViewById(R.id.layout3).setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.layout1:
-                Intent intent = new Intent(this.getContext(), ChatbotActivity.class);
-                startActivity(intent);
-                break;
-
-        }
-        switch (v.getId()) {
-            case R.id.layout2:
-                Intent intent = new Intent(this.getContext(), ChatbotActivity.class);
-                startActivity(intent);
-                break;
-        }
-        switch (v.getId()) {
-            case R.id.layout3:
-                Intent intent = new Intent(this.getContext(), Chatbot2Activity.class);
-                startActivity(intent);
-
-                break;
-        }
 
     }
+
 
     //클릭 리스너
 

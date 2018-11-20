@@ -15,16 +15,12 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.android.kusitms.kbscilpoon.Chatbot.Activity.Chatbot2Activity;
-import com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity;
-import com.android.kusitms.kbscilpoon.Fragment.Activity.InforActivity;
 import com.android.kusitms.kbscilpoon.Fragment.Activity.MateActivity;
-import com.android.kusitms.kbscilpoon.MainActivity;
 import com.android.kusitms.kbscilpoon.R;
 
 import java.util.List;
 
-public class ThirdFragment extends Fragment  {
+public class ThirdFragment extends Fragment{
     private Context context;
     List<String> list;
     Button backbtn;
@@ -91,7 +87,7 @@ public class ThirdFragment extends Fragment  {
         });
 
         return view;
-    }
+    }//End onCreateView
 
 
 }

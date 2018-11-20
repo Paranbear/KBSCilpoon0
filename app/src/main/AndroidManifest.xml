@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".Fragment.Activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,29 +19,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IntroduceActivity"
+            android:name=".Fragment.Activity.IntroduceActivity"
             android:theme="@style/AppTheme.NoTitleBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Fragment.Activity.MainActivity"
             android:theme="@style/AppTheme.NoTitleBar" />
-
         <activity android:name=".Chatbot.Activity.ChatbotActivity" />
-        <activity android:name=".Chatbot.Activity.Chatbot2Activity" />
         <activity android:name=".Fragment.Activity.MateActivity" />
-        <activity android:name=".Fragment.Activity.InforActivity"></activity>
-        <activity
-            android:name=".Chatbot.Activity.CardDetail1"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name=".Chatbot.Activity.CardDetail2"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity
-            android:name=".Chatbot.Activity.CardDetail3"
-            android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".Chatbot.Activity.MakeCardActivity"></activity>
-
-
-
+        <activity android:name=".Fragment.Activity.ChatInfoActivity" />
+        <activity android:name=".Fragment.Activity.ChatInfo2Activity" />
+        <activity android:name=".Fragment.Activity.ChatInfo3Activity"></activity>
     </application>
 
 </manifest>
