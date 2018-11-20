@@ -9,10 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.kusitms.kbscilpoon.Fragment.Model.Contact;
 import com.android.kusitms.kbscilpoon.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecycleListViewAdapter extends RecyclerView.Adapter<RecycleListViewAdapter.MyViewHolder> {
@@ -26,6 +28,8 @@ public class RecycleListViewAdapter extends RecyclerView.Adapter<RecycleListView
         this.mData = mData;
     }
 
+
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -36,12 +40,27 @@ public class RecycleListViewAdapter extends RecyclerView.Adapter<RecycleListView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        myViewHolder.tv_Name.setText(mData.get(i).getName());
-        myViewHolder.tv_phone.setText(mData.get(i).getPhone());
-        myViewHolder.img.setImageResource(mData.get(i).getPhoto());
+    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int position) {
 
 
+
+        myViewHolder.tv_Name.setText(mData.get(position).getName());
+        myViewHolder.tv_phone.setText(mData.get(position).getPhone());
+        myViewHolder.img.setImageResource(mData.get(position).getPhoto());
+
+
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+
+        public final View mView;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            mView = itemView;
+
+            // 레이아웃 객체화 findViewById
+        }
     }
 
     @Override
@@ -52,6 +71,7 @@ public class RecycleListViewAdapter extends RecyclerView.Adapter<RecycleListView
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
+        public View mView;
         private TextView tv_Name;
         private TextView tv_phone;
         private ImageView img;

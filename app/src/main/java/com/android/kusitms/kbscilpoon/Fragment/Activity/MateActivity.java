@@ -1,8 +1,8 @@
 package com.android.kusitms.kbscilpoon.Fragment.Activity;
 
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 

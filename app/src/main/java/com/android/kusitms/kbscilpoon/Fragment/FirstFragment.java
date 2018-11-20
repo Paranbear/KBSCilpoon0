@@ -1,31 +1,24 @@
 package com.android.kusitms.kbscilpoon.Fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-
-import android.support.v4.app.ListFragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-
+import com.android.kusitms.kbscilpoon.Fragment.Activity.ChatInfo2Activity;
+import com.android.kusitms.kbscilpoon.Fragment.Activity.ChatInfo3Activity;
+import com.android.kusitms.kbscilpoon.Fragment.Activity.ChatInfoActivity;
 import com.android.kusitms.kbscilpoon.Fragment.Activity.MateActivity;
 import com.android.kusitms.kbscilpoon.Fragment.Adapter.ListVIewAdpater;
-import com.android.kusitms.kbscilpoon.Fragment.Model.ListViewItem;
 import com.android.kusitms.kbscilpoon.R;
-
-import java.util.ArrayList;
 
 public class FirstFragment extends Fragment implements View.OnClickListener {
 
@@ -53,16 +46,23 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
 
                 switch (position) {
                     case 0:
-                        Intent intent = new Intent(getActivity().getApplicationContext(), MateActivity.class);
+                        Intent intent = new Intent(getActivity().getApplicationContext(), ChatInfoActivity.class);
                         startActivity(intent);
                         break;
+                    case 1:
+                        Intent intent1 = new Intent(getActivity().getApplicationContext(), ChatInfo2Activity.class);
+                        startActivity(intent1);
+                        break;
+                    case 2:
+                        Intent intent2 = new Intent(getActivity().getApplicationContext(), ChatInfo3Activity.class);
+                        startActivity(intent2);
+                        break;
+
                 }
             }
         });
         return view;
     }
-
-
 
 
     @Override

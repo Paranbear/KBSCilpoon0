@@ -22,10 +22,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<SectionDataModel> dataList;
     private Context mContext;
     private Chat chat;
-
-    public RecyclerViewAdapter() {
-    }
-
     public RecyclerViewAdapter(Context context, ArrayList<SectionDataModel> dataList) {
         this.dataList = dataList;
         this.mContext = mContext;

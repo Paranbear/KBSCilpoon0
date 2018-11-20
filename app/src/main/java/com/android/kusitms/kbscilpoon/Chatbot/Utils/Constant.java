@@ -16,13 +16,6 @@ public class Constant {
     public static final String RECOMMEND_CARD="2";
     public static final String APPLY_CARD="3";
 
-    public static final String BENEFIT_1="b1";
-    public static final String BENEFIT_2="b2";
-    public static final String BENEFIT_3="b3";
-
-    public static final String YES ="yes";
-    //public static final String
-
     public static final String SHOW_CARD1="card1";
 
     public static final String TAG_ACTION = "action";

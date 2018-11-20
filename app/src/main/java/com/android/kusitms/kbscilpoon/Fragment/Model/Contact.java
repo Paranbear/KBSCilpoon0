@@ -5,14 +5,35 @@ public class Contact{
     private String Name;
     private String Phone;
     private int Photo;
-
+    private String time;
     public Contact() {
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public Contact(String name, String phone, int photo) {
         Name = name;
         Phone = phone;
         Photo = photo;
+    }
+
+    public Contact(String name, String phone, int photo, String time) {
+        Name = name;
+        Phone = phone;
+        Photo = photo;
+        this.time = time;
+    }
+
+    public Contact(String name, int photo, String time) {
+        Name = name;
+        Photo = photo;
+        this.time = time;
     }
 
 

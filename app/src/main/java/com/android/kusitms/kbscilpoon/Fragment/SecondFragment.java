@@ -1,5 +1,6 @@
 package com.android.kusitms.kbscilpoon.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,15 +9,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.android.kusitms.kbscilpoon.Chatbot.Activity.Chatbot2Activity;
 import com.android.kusitms.kbscilpoon.Chatbot.Activity.ChatbotActivity;
-import com.android.kusitms.kbscilpoon.Fragment.Activity.MateActivity;
 import com.android.kusitms.kbscilpoon.Fragment.Adapter.ListVIewAdpater;
 import com.android.kusitms.kbscilpoon.Fragment.Adapter.RecycleListViewAdapter;
 import com.android.kusitms.kbscilpoon.Fragment.Model.Contact;
@@ -59,7 +61,7 @@ public class SecondFragment extends Fragment implements View.OnClickListener {
                         startActivity(intent);
                         break;
                     case 1:
-                        Intent intent1 = new Intent(getActivity().getApplicationContext(), Chatbot2Activity.class);
+                        Intent intent1 = new Intent(getActivity().getApplicationContext(), ChatbotActivity.class);
                         startActivity(intent1);
                         break;
                     case 2:

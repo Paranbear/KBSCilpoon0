@@ -25,17 +25,12 @@ import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_JUST_
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_MENU;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.ACTION_TEXT;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.APPLY_CARD;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.BENEFIT_1;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.BENEFIT_2;
-import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.BENEFIT_3;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.DATE_LINE;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.POP_CARD;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.RECOMMEND_CARD;
 import static com.android.kusitms.kbscilpoon.Chatbot.Utils.Constant.SHOW_CARD1;
 
 public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHolder> {
-
-
 
     private static final int RIGHT = 0, LEFT =1;
 
@@ -71,8 +66,6 @@ public class ChatMessageAdapter extends RecyclerView.Adapter<ChatMessageViewHold
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message_left, parent, false);
         }
         return new ChatMessageViewHolder(view);
-
-
     }
 
     @Override
@@ -98,7 +91,6 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
     Context context;
     RecyclerView rv_choice_card;
     ImageView imagePop;
-    ImageView profile;
 
     public ChatMessageViewHolder(View itemView) {
         super(itemView);
@@ -115,11 +107,6 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
         rv_choice_card = (RecyclerView)itemView.findViewById(R.id.rv_choice_card);
 
         imagePop = (ImageView)itemView.findViewById(R.id.imagePop);
-
-        profile = (ImageView)itemView.findViewById(R.id.profileView);
-
-
-
     }
 
 
@@ -133,13 +120,9 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
      */
 
     public void bind(final Chat chat) { //입력값에 따른 답변 텍스트의 형태 지정
-
-
-
         switch(chat.getAction()) {
 
             case ACTION_MENU:
-                profile.setImageResource(R.drawable.chatbot1);
                 container_txt.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
                 txtTime.setVisibility(View.VISIBLE);
@@ -150,16 +133,15 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 rv_choice_card.setVisibility(View.VISIBLE);
                 imagePop.setVisibility(View.VISIBLE);
 
-
                 ArrayList<SectionDataModel> array_action_start = new ArrayList<SectionDataModel>();
-                ArrayList<SingleItemModel> singleItem_start = new ArrayList<>();
+                ArrayList<SingleItemModel> singleItem_start = new ArrayList<SingleItemModel>();
                 SectionDataModel dm_start = new SectionDataModel();
 
 
 
-                singleItem_start.add(new SingleItemModel("인기카드 추천", POP_CARD));
-                singleItem_start.add(new SingleItemModel("내게 맞는 추천", RECOMMEND_CARD));
-                singleItem_start.add(new SingleItemModel("바로신청", APPLY_CARD));
+                singleItem_start.add(new SingleItemModel("1.인기카드 추천", POP_CARD));
+                singleItem_start.add(new SingleItemModel("2.내게 맞는 추천", RECOMMEND_CARD));
+                singleItem_start.add(new SingleItemModel("3.바로신청", APPLY_CARD));
 
                 dm_start.setAllItemInSection(singleItem_start);
                 array_action_start.add(dm_start);
@@ -171,7 +153,6 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 break;
 
             case POP_CARD:
-                profile.setImageResource(R.drawable.chatbot1);
                 container_txt.setVisibility(View.VISIBLE);
                 //           txtCheck.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
@@ -188,10 +169,11 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 SectionDataModel dm_popcard = new SectionDataModel();
 
 
-                singleItem_popcard.add(new SingleItemModel("<상세 보기1>", R.drawable.card1, BENEFIT_1));
-                singleItem_popcard.add(new SingleItemModel("<상세 보기2>", R.drawable.card2, BENEFIT_2 ));
-                singleItem_popcard.add(new SingleItemModel("<상세 보기3>", R.drawable.card3, BENEFIT_3 ));
 
+                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
+                singleItem_popcard.add(new SingleItemModel("<상세 보기>", R.drawable.cardtest, ACTION_MENU ));
 
                 dm_popcard.setAllItemInSection(singleItem_popcard);
                 array_action_popcard.add(dm_popcard);
@@ -204,7 +186,6 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 break;
 
             case RECOMMEND_CARD:
-                profile.setImageResource(R.drawable.chatbot1);
                 container_txt.setVisibility(View.VISIBLE);
                 //           txtCheck.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
@@ -237,7 +218,6 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 break;
 
             case SHOW_CARD1:
-                profile.setImageResource(R.drawable.chatbot1);
                 container_txt.setVisibility(View.VISIBLE);
                 //           txtCheck.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
@@ -271,7 +251,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
 
             case ACTION_TEXT:
-                //profile.setImageResource(R.drawable.chatbot1);
+
                 container_txt.setVisibility(View.VISIBLE);
                 //           txtCheck.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
@@ -285,7 +265,6 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 break;
 
             case ACTION_JUST_IMAGE:
-                profile.setImageResource(R.drawable.chatbot1);
                 container_txt.setVisibility(View.VISIBLE);
                 imagePop.setVisibility(View.VISIBLE);
                 //           txtCheck.setVisibility(View.VISIBLE);
@@ -299,7 +278,7 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 break;
 
             case ACTION_CHECK:
-                profile.setImageResource(R.drawable.chatbot1);
+
                 container_txt.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
                 txtTime.setVisibility(View.VISIBLE);
@@ -330,7 +309,6 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 break;
 
             case ACTION_DEFAULT:
-                profile.setImageResource(R.drawable.chatbot1);
                 container_txt.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
                 txtTime.setVisibility(View.VISIBLE);
@@ -362,7 +340,6 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
 
             case ACTION_BUTTON_IMAGE:
-                profile.setImageResource(R.drawable.chatbot1);
                 container_txt.setVisibility(View.VISIBLE);
                 //           txtCheck.setVisibility(View.VISIBLE);
                 txtMessage.setVisibility(View.VISIBLE);
@@ -380,7 +357,17 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
 
 
                 singleItem_image.add(new SingleItemModel("응", R.drawable.test, ACTION_MENU )); //수정 필요!
-
+//                singleItem_image.setOnClickListener(new this.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                switch (getLayoutPosition()) {
+//                                                    case 0:
+//                                                        Toast.makeText(itemView.getContext(), "웅", Toast.LENGTH_SHORT).show();
+//                                                        break;
+//                                                }
+//
+//                                            }
+//                                        }
                 dm_image.setAllItemInSection(singleItem_image);
                 array_action_image.add(dm_image);
 
@@ -392,8 +379,68 @@ class ChatMessageViewHolder extends RecyclerView.ViewHolder {
                 break;
 
 
-            case DATE_LINE:
 
+
+//             case ACTION_SCHEDULE_OTHER:
+//
+//             //txt + 물음상자
+//             // container_img.setVisibility(View.GONE);
+//             container_txt.setVisibility(View.VISIBLE);
+//             //           txtCheck.setVisibility(View.VISIBLE);
+//             txtMessage.setVisibility(View.VISIBLE);
+//             txtTime.setVisibility(View.VISIBLE);
+//             txtMessage.setText(chat.getMessage());
+//             txtTime.setText(chat.getTimestamp());
+//             dateLine.setVisibility(View.GONE);
+//             rv_choice_card.setVisibility(View.VISIBLE);
+//
+//
+//             ArrayList<SectionDataModel> array_action_start2 = new ArrayList<SectionDataModel>();
+//             ArrayList<SingleItemModel> ACTION_STARTsingleItem2 = new ArrayList<SingleItemModel>();
+//             SectionDataModel ACTION_STARTdm2 = new SectionDataModel();
+//
+//             for(int i =0;i<emotions.size();i++) {
+//             ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(i).getRole_name(), ACTION_SCHEDULE_MY));
+//             }
+//             //
+//             ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(0).getRole_name(), ACTION_SCHEDULE_MY ));
+//             ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(1).getRole_name(), ACTION_ALARM ));
+//             ACTION_STARTsingleItem2.add(new SingleItemModel(roles.get(2).getRole_name(), ACTION_DONE ));
+//             ACTION_STARTsingleItem2.add(new SingleItemModel("teammate4", ACTION_SCHEDULE_OTHER ));//
+//             ACTION_STARTsingleItem2.add(new SingleItemModel("메뉴", ACTION_START));
+//
+//             ACTION_STARTdm2.setAllItemsInSection(ACTION_STARTsingleItem2);
+//             array_action_start2.add(ACTION_STARTdm2);
+//
+//             rv_choice_card.setHasFixedSize(true);
+//             RecyclerViewDataAdapter adapter2 = new RecyclerViewDataAdapter(context, array_action_start2);
+//             rv_choice_card.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+//             rv_choice_card.setAdapter(adapter2);
+//
+//             break;
+//
+//
+//
+//             case ACTION_SCHEDULE_MY:
+//
+//             rv_choice_card.setVisibility(View.GONE);
+//             // container_img.setVisibility(View.GONE);
+//             container_txt.setVisibility(View.VISIBLE);
+//             //           txtCheck.setVisibility(View.VISIBLE);
+//             txtMessage.setVisibility(View.VISIBLE);
+//             txtTime.setVisibility(View.VISIBLE);
+//             txtMessage.setText(chat.getMessage());
+//             txtTime.setText(chat.getTimestamp());
+//             dateLine.setVisibility(View.GONE);
+//
+//
+//             break;
+//
+//             */
+            //날짜선 케이스
+            //쓰는 뷰
+            //안쓰는 뷰
+            case DATE_LINE:
                 //      container_img.setVisibility(View.GONE);
                 container_txt.setVisibility(View.GONE);
                 //         txtCheck.setVisibility(View.GONE);

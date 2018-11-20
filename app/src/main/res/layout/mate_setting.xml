@@ -23,7 +23,7 @@
             android:textStyle="bold" />
 
         <Button
-android:id="@+id/btnback"
+            android:id="@+id/btnback"
             android:layout_width="43dp"
             android:layout_height="wrap_content" />
     </android.support.constraint.ConstraintLayout>
