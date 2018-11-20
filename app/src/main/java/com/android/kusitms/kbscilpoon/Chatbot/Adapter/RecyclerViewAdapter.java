@@ -22,6 +22,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<SectionDataModel> dataList;
     private Context mContext;
     private Chat chat;
+
+    public RecyclerViewAdapter() {
+    }
+
     public RecyclerViewAdapter(Context context, ArrayList<SectionDataModel> dataList) {
         this.dataList = dataList;
         this.mContext = mContext;
@@ -29,16 +33,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @NonNull
     @Override
-    public ItemRowHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecyclerViewAdapter.ItemRowHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
 
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_list_item, null);
-        ItemRowHolder rh = new ItemRowHolder(v);
+        RecyclerViewAdapter.ItemRowHolder rh = new RecyclerViewAdapter.ItemRowHolder(v);
         return rh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemRowHolder itemRowHolder, int i) {
+    public void onBindViewHolder(@NonNull RecyclerViewAdapter.ItemRowHolder itemRowHolder, int i) {
 
         final String sectionName = dataList.get(i).getHeaderChat();
 

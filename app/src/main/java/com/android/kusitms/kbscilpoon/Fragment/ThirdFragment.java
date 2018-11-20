@@ -24,7 +24,7 @@ import com.android.kusitms.kbscilpoon.R;
 
 import java.util.List;
 
-public class ThirdFragment extends Fragment  {
+public class ThirdFragment extends Fragment {
     private Context context;
     List<String> list;
     Button backbtn;
@@ -91,7 +91,7 @@ public class ThirdFragment extends Fragment  {
         });
 
         return view;
-    }
+    }//End onCreateView
 
 
 }

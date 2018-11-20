@@ -42,7 +42,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
     @NonNull
     @Override
-    public SingleItemRowHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public SectionListDataAdapter.SingleItemRowHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_single, null);
         SingleItemRowHolder mh = new SingleItemRowHolder(v);
         return mh;
@@ -112,6 +112,20 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
                     }
                     if (tvCode.getText().toString().equals("2")) {
+
+                        //4 필요한 객체 생성 & 더하기
+//                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "인기 카드 보여줘!", true, ACTION_TEXT);
+//                        chats.add(chat);
+                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), " 이중에서너가제일원하는것을골라줘!", false, RECOMMEND_CARD);
+                        chats.add(chat);
+
+                        //5 리스트 리프레시
+                        ChatbotActivity chatbotActivity = new ChatbotActivity();
+                        chatbotActivity.scroll_to_bottom();
+
+
+                    }
+                     if (tvCode.getText().toString().equals("2")) {
 
                         //4 필요한 객체 생성 & 더하기
 //                        chat = new Chat(current_name, current_room_no, DateFormat.date_apm(), "인기 카드 보여줘!", true, ACTION_TEXT);

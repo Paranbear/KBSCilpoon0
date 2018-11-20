@@ -1,7 +1,6 @@
 package com.android.kusitms.kbscilpoon.Chatbot.Activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -67,11 +66,5 @@ public class CardDetail1 extends Activity {
     }
 
     public void onMake1Clicked(View view) {
-        Intent intent = new Intent(this, MakeCardActivity.class);
-        intent.putExtra("pos",1);
-        startActivity(intent);
     }
-
-
-
 }

@@ -1,7 +1,6 @@
 package com.android.kusitms.kbscilpoon.Chatbot.Activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -64,10 +63,5 @@ public class CardDetail2 extends Activity {
         s2.setVisibility(View.GONE);
         s3.setVisibility(View.GONE);
 
-    }
-    public void onMake2Clicked(View view) {
-        Intent intent = new Intent(this, MakeCardActivity.class);
-        intent.putExtra("pos",2);
-        startActivity(intent);
     }
 }
